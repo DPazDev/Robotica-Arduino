@@ -6,8 +6,8 @@ Este documento presenta la descripción y el análisis del código para el proye
 
 ## 📋 Lista de Tareas a Realizar
 
-* **Traducción** de los comentarios del código fuente al español.
-* **Traducción** de los mensajes de salida mostrados en la consola (desde la línea 44).
-* **Comentario y explicación** del significado de los principales métodos (funciones) utilizados en el código.
+* ~~**Traducción** de los comentarios del código fuente al español.~~
+* ~~**Traducción** de los mensajes de salida mostrados en la consola (desde la línea 44).~~
+* ~~**Comentario y explicación** del significado de los principales métodos (funciones) utilizados en el código.~~
 
 ---
