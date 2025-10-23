@@ -18,7 +18,7 @@
       #else 
         #error Target CONFIG_IDF_TARGET is not supported
       #endif
-    #else // ESP32 Before IDF 4.0
+    #else // ESP32 antes IDF 4.0 - Fabián Sánchez
       #define MONITOR_SERIAL Serial
       #define RADAR_SERIAL Serial1
       #define RADAR_RX_PIN 32
@@ -72,15 +72,15 @@ void loop()
     { 
       if(radar.stationaryTargetDetected())
       {
-        Serial.print(F("Objetivo estacionario: "));
-        Serial.print(radar.stationaryTargetDistance());
+        Serial.print(F("Objetivo estacionario: ")); // Objetivo estacionario (ej. una persona quieta) - Fabián Sánchez 
+        Serial.print(radar.stationaryTargetDistance()); //Distancia al objetivo estacionario - Fabián Sánchez 
         Serial.print(F("cm energía:"));
         Serial.print(radar.stationaryTargetEnergy()); //Nivel de energía/reflectividad del objetivo - Eduar Marquez
         Serial.print(' ');
       }
       if(radar.movingTargetDetected())
       {
-        Serial.print(F("Objetivo en movimiento: "));
+        Serial.print(F("Objetivo en movimiento: ")); // Objetivo en movimiento (ej. una persona andando) - Fabián Sánchez
         Serial.print(radar.movingTargetDistance()); //Distancia al objetivo en movimiento - Eduar Marquez
         Serial.print(F("cm energía:"));
         Serial.print(radar.movingTargetEnergy()); //Nivel de energía del objetivo en movimiento - Eduar Marquez
