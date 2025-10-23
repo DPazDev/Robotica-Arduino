@@ -35,21 +35,21 @@ bool radarConnected = false;
 
 void setup(void)
 {
-  MONITOR_SERIAL.begin(115200); //Feedback over Serial Monitor
-  //radar.debug(MONITOR_SERIAL); //Uncomment to show debug information from the library on the Serial Monitor. By default this does not show sensor reads as they are very frequent.
+  MONITOR_SERIAL.begin(115200); //Retroalimentación por Monitor Serial
+  //radar.debug(MONITOR_SERIAL); //Descomenta para mostrar información de depuración de la librería en el Monitor Serial. Por defecto no muestra lecturas del sensor ya que son muy frecuentes. - Eduar Marquez
   
   RADAR_SERIAL.begin(256000, SERIAL_8N1, RADAR_RX_PIN, RADAR_TX_PIN); //UART para monitorear el radar (Receptor/tranmisor asíncrono universal, su función es convertir los datos en formato serie para su transmisión y volverlos a convertir al llegar al receptor) - Luis Canelon
   
   delay(500);
-  MONITOR_SERIAL.print(F("\nConnect LD2410 radar TX to GPIO:"));
+  MONITOR_SERIAL.print(F("\nConectar TX del radar LD2410 al GPIO:"));
   MONITOR_SERIAL.println(RADAR_RX_PIN); //Que pines son Exactamente
-  MONITOR_SERIAL.print(F("Connect LD2410 radar RX to GPIO:"));
+  MONITOR_SERIAL.print(F("Conectar RX del radar LD2410 al GPIO:"));
   MONITOR_SERIAL.println(RADAR_TX_PIN);//Que pines son Exactamente
-  MONITOR_SERIAL.print(F("LD2410 radar sensor initialising: ")); 
+  MONITOR_SERIAL.print(F("Inicializando sensor radar LD2410: ")); 
   if(radar.begin(RADAR_SERIAL))
   {
     MONITOR_SERIAL.println(F("OK"));
-    MONITOR_SERIAL.print(F("LD2410 firmware version: "));
+    MONITOR_SERIAL.print(F("Versión de firmware LD2410: "));
     MONITOR_SERIAL.print(radar.firmware_major_version);
     MONITOR_SERIAL.print('.');
     MONITOR_SERIAL.print(radar.firmware_minor_version);
@@ -58,7 +58,7 @@ void setup(void)
   }
   else
   {
-    MONITOR_SERIAL.println(F("not connected"));
+    MONITOR_SERIAL.println(F("no conectado"));
   }
 }
 
@@ -72,24 +72,24 @@ void loop()
     { 
       if(radar.stationaryTargetDetected())
       {
-        Serial.print(F("Stationary target: "));
+        Serial.print(F("Objetivo estacionario: "));
         Serial.print(radar.stationaryTargetDistance());
-        Serial.print(F("cm energy:"));
-        Serial.print(radar.stationaryTargetEnergy()); //Que es?
+        Serial.print(F("cm energía:"));
+        Serial.print(radar.stationaryTargetEnergy()); //Nivel de energía/reflectividad del objetivo - Eduar Marquez
         Serial.print(' ');
       }
       if(radar.movingTargetDetected())
       {
-        Serial.print(F("Moving target: "));
-        Serial.print(radar.movingTargetDistance()); //Que es?
-        Serial.print(F("cm energy:"));
-        Serial.print(radar.movingTargetEnergy());
+        Serial.print(F("Objetivo en movimiento: "));
+        Serial.print(radar.movingTargetDistance()); //Distancia al objetivo en movimiento - Eduar Marquez
+        Serial.print(F("cm energía:"));
+        Serial.print(radar.movingTargetEnergy()); //Nivel de energía del objetivo en movimiento - Eduar Marquez
       }
       Serial.println();
     }
     else
     {
-      Serial.println(F("No target"));
+      Serial.println(F("Sin objetivos"));
     }
   }
 }
