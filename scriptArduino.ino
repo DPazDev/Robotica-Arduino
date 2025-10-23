@@ -87,9 +87,9 @@ void loop()
       if(radar.movingTargetDetected())
       {
         Serial.print(F("Objetivo en movimiento: ")); // Objetivo en movimiento (ej. una persona andando) - Fabián Sánchez
-        Serial.print(radar.movingTargetDistance()); //Distancia al objetivo en movimiento - Eduar Marquez
+        Serial.print(radar.movingTargetDistance()); //Distancia al objetivo en movimiento - Gerald Villarruel
         Serial.print(F("cm energía:"));
-        Serial.print(radar.movingTargetEnergy()); //Nivel de energía del objetivo en movimiento - Eduar Marquez
+        Serial.print(radar.movingTargetEnergy()); //Nivel de energía del objetivo en movimiento - Gerald Villarruel
       }
       Serial.println();
     }
