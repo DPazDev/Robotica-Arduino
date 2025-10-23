@@ -38,7 +38,7 @@ void setup(void)
   MONITOR_SERIAL.begin(115200); //Feedback over Serial Monitor
   //radar.debug(MONITOR_SERIAL); //Uncomment to show debug information from the library on the Serial Monitor. By default this does not show sensor reads as they are very frequent.
   
-  RADAR_SERIAL.begin(256000, SERIAL_8N1, RADAR_RX_PIN, RADAR_TX_PIN); //UART for monitoring the radar
+  RADAR_SERIAL.begin(256000, SERIAL_8N1, RADAR_RX_PIN, RADAR_TX_PIN); //UART para monitorear el radar (Receptor/tranmisor asíncrono universal, su función es convertir los datos en formato serie para su transmisión y volverlos a convertir al llegar al receptor) - Luis Canelon
   
   delay(500);
   MONITOR_SERIAL.print(F("\nConnect LD2410 radar TX to GPIO:"));
@@ -65,7 +65,7 @@ void setup(void)
 void loop()
 {
   radar.read();
-  if(radar.isConnected() && millis() - lastReading > 1000)  //Report every 1000ms
+  if(radar.isConnected() && millis() - lastReading > 1000)  //Reporte cada 1000 ms (Envia un reporte cada 1000 milisegundos) - Luis Canelon
   {
     lastReading = millis();
     if(radar.presenceDetected())
