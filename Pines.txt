@@ -1,2 +1,25 @@
 # Descripción de pines del ESP32-WROOM-32
 
+Conenexiones entre el radar LD2410 al ESP32-WROOM-32
+
+Pin del Radar LD2410  |  Función del Pin del Radar  |  Pin GPIO del ESP32  |  Etiqueta Común en la Placa  |  Función en el Código (RADAR_SERIAL)
+__________________________________________________________________________________________________________________________________________________
+  TX (Transmisor)     |    Envía datos del radar    |          32          |          32 o D32            |       RX (Receptor de la UART1)
+__________________________________________________________________________________________________________________________________________________
+   RX (Receptor)      |  Recibe comandos de config. |          33          |          33 o D33            |      TX (Transmisor de la UART1)
+__________________________________________________________________________________________________________________________________________________
+   GND (Tierra)       |   Referencia de voltaje     |          GND         |            GND               |              (Tierra)
+__________________________________________________________________________________________________________________________________________________
+  VCC (Alimentación)  |    Encendido del módulo     |          3V3         |            3V3               |         (Alimentación 3.3V)
+__________________________________________________________________________________________________________________________________________________
+
+Resumen de la Lógica de Conexión
+Principio Serial: Siempre conecta la línea de Transmisión (TX) de un dispositivo a la línea de Recepción (RX) del otro, y viceversa.
+
+En el código:
+
+RADAR_RX_PIN (Receptor del ESP32) se define como 32.
+
+RADAR_TX_PIN (Transmisor del ESP32) se define como 33.
+
+Físicamente: Conecta el cable del pin TX del Radar al pin físico 32 de la placa. Conecta el cable del pin RX del Radar al pin físico 33 de la placa.
