@@ -1,3 +1,9 @@
+  /*============================================================
+  Proyecto: Radar de presencia LD2410 sobre ESP32
+  Profesor: Yan Romero
+  Estudiantes: Cristofer Medina, Fabián Sánchez, Gerald Villarruel, Daniel Paz, Luis Canelón, Eduar Márquez, Miguel Barrios
+  ============================================================*/
+
 #if defined(ESP32)
     #ifdef ESP_IDF_VERSION_MAJOR // IDF 4+
       #if CONFIG_IDF_TARGET_ESP32 // ESP32/PICO-D4
