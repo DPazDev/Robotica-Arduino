@@ -1,0 +1,2 @@
+# Descripción de pines del ESP32-WROOM-32
+
